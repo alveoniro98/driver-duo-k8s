@@ -4,7 +4,7 @@ metadata:
   name: app
   namespace: driver-duo
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: driver-duo
