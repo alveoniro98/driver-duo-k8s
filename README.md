@@ -20,6 +20,21 @@ npm run build
 npm start
 ```
 
+## Deploy dengan Terraform
+
+Terraform mengelola namespace, aplikasi, PostgreSQL, dan penyimpanan persisten pada cluster Kubernetes yang dipilih oleh kubeconfig. Jalankan dari root repo:
+
+```bash
+docker buildx build --platform linux/arm64 -t alveoniro98/driver-duo:1.2 --push .
+terraform -chdir=terraform init
+terraform -chdir=terraform apply -var="node_public_ip=IP_PUBLIK_NODE"
+terraform -chdir=terraform output -raw app_public_url
+```
+
+Image `1.2` berisi tampilan hotel terbaru; login ke registry sebelum build/push jika diminta. NodePort `30080` meneruskan trafik ke aplikasi pada port `3000`. Agar URL publik bisa dicapai, buka inbound TCP `30080` pada security group node yang dituju. Untuk akses dari mana saja gunakan sumber `0.0.0.0/0`; lebih aman batasi ke CIDR pengguna yang membutuhkan akses. Gunakan IP publik salah satu node Kubernetes. Setelah deploy, alamatnya `http://IP_PUBLIK_NODE:30080`.
+
+Saat `apply`, Terraform meminta `postgres_password` dan `session_secret`. State dibuat di `terraform/terraform.tfstate`; file ini berisi data rahasia dan sengaja diabaikan Git. Simpan state dengan akses terbatas, atau konfigurasi backend remote terenkripsi sebelum dipakai bersama tim.
+
 Halaman utama jalan tanpa database. Fitur daftar dan login butuh dua environment variable:
 
 | Variable | Isi |

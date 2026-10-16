@@ -50,9 +50,9 @@ export default function AuthForm() {
 
   return (
     <div className="relative w-full max-w-[400px]">
-      <Link href="/" className="text-[30px] leading-none font-bold italic tracking-[-0.05em]">
-        <span className="text-red">GP</span>ID
-        <span className="font-light text-white/55">26</span>
+      <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.08em]">
+        <span className="flex size-9 items-center justify-center rounded-full border border-white/70 font-serif text-xl font-normal">S</span>
+        SORA <span className="text-[10px] font-light tracking-[0.16em] text-white/65">HOUSE</span>
       </Link>
 
       <h1 className="mt-10 text-[clamp(40px,6vw,56px)] leading-none font-medium tracking-[-0.04em]">

@@ -42,3 +42,11 @@ next-env.d.ts
 
 # contoh isi .env boleh ikut ke repo, .env aslinya jangan
 !.env.example
+
+# Kuberneter secrets
+k8s/secret.yaml
+
+# Terraform state and provider cache (state may contain secrets)
+*.tfstate
+*.tfstate.*
+.terraform/

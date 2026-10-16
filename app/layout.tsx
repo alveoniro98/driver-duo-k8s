@@ -9,9 +9,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Driver Duo — GPID26",
-  description:
-    "Profil pembalap Yassir Army Tigreal dan Alveoniro Moskop Epic: biografi, statistik, dan karier.",
+  title: "Sora House — Boutique Stay di Uluwatu",
+  description: "Hotel butik tepi laut di Uluwatu, Bali. Temukan jeda di Sora House.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
